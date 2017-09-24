@@ -27,6 +27,7 @@ const store = {
 
 module.exports = createStore(store);
 ```
+---
 ```javascript
 // HomePage.js
 import {connect} from 'react-simdux';
@@ -54,17 +55,17 @@ Guide
 
 **Remember to create a new instance, if it is pointer, for updating**
 ```javascript
-Store.num++;                            // Good
-// Store.num = Store.num + 1;	    	// Good too
+Store.num++;                      // Good
+Store.num = Store.num + 1;        // Good too
 
 Store.array = [...Store.array, 1];      // Good
-// Store.array.push(1);    	            // Bad, and won't update the view
+// Store.array.push(1);                 // Bad, and won't update the view
 
-Store.array = Store.array.slice(1, Store.array.length);     // Good
-// Store.array.shift();    				                    // Bad, and won't update the view
+Store.array = Store.array.slice(1, Store.array.length);   // Good
+// Store.array.shift();                                   // Bad, and won't update the view
 
 Store.object = { ...Store.object, a: Store.object.a + 1 }   // Good
-// Store.object.a = Store.object.a + 1;			            // Bad, and won't update the view		
+// Store.object.a = Store.object.a + 1;                     // Bad, and won't update the view		
 ```
 
 **Connect the field only you needed**

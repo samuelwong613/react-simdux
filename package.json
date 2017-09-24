@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"no test specified, TODO later\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samuelwong613/react-simdux"
+  },
   "keywords": [
     "react",
     "react-native",
