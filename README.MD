@@ -21,8 +21,8 @@ Usage
 import {createStore} from 'react-simdux'
 
 const store = {
-    number: 0,
-    string: ''
+  number: 0,
+  string: ''
 }
 
 module.exports = createStore(store);
@@ -37,12 +37,12 @@ class HomePage extends Component {
   render() {
     return (
       <View>
-	    <Button onPress={ () => Store.number++ }> Add </Button>
-	    <Button onPress={ () => Store.string = 'I love Simdux' }> Edit </Button>
-		<Text>{'number: '+Store.number}</Text>
-		<Text>{'string: '+Store.string}</Text>
-	  </View>
-	);
+        <Button onPress={ () => Store.number++ }> Add </Button>
+        <Button onPress={ () => Store.string = 'I love Simdux' }> Edit </Button>
+        <Text>{'number: '+Store.number}</Text>
+        <Text>{'string: '+Store.string}</Text>
+      </View>
+    );
   }
 }
 
@@ -55,14 +55,14 @@ Guide
 
 **Remember to create a new instance, if it is pointer, for updating**
 ```javascript
-Store.num++;                      // Good
-Store.num = Store.num + 1;        // Good too
+Store.num++;                              // Good
+Store.num = Store.num + 1;                // Good too
 
-Store.array = [...Store.array, 1];      // Good
-// Store.array.push(1);                 // Bad, and won't update the view
+Store.array = [...Store.array, 1];        // Good
+// Store.array.push(1);                   // Bad, and won't update the view
 
-Store.array = Store.array.slice(1, Store.array.length);   // Good
-// Store.array.shift();                                   // Bad, and won't update the view
+Store.array = Store.array.slice(1, Store.array.length);     // Good
+// Store.array.shift();                                     // Bad, and won't update the view
 
 Store.object = { ...Store.object, a: Store.object.a + 1 }   // Good
 // Store.object.a = Store.object.a + 1;                     // Bad, and won't update the view		
@@ -79,9 +79,9 @@ Store.array = [...Store.array, 1];
 **How to use mapStoreToProps in connect**
 ```javascript
 function mapStoreToProps(store, ownProps){
-	return {
-		isEmpty: store.array.length === 0,
-	};
+  return {
+    isEmpty: store.array.length === 0,
+  };
 }
 connect(Store, mapStoreToProps)(Home);
 // this.props.isEmpty
