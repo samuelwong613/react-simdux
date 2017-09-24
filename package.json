@@ -1,0 +1,29 @@
+{
+  "name": "react-simdux",
+  "version": "1.0.0",
+  "description": "A simple store as another choice comparing with redux ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"no test specified, TODO later\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "react-native",
+    "simdux",    
+    "store",
+    "simple store",
+    "simple redux"
+  ],
+  "author": "samuelwong <samuelwong613@gmail.com>",
+  "license": "MIT",
+  "dependencies":{
+    "react": "^15.6.1",
+    "eventemitter3": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-jest": "21.0.2",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "21.1.0",
+    "react-test-renderer": "16.0.0-alpha.12"
+  }
+}
