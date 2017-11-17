@@ -1,6 +1,6 @@
 {
   "name": "react-simdux",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple store as another choice comparing with redux ",
   "main": "index.js",
   "scripts": {
@@ -13,14 +13,14 @@
   "keywords": [
     "react",
     "react-native",
-    "simdux",    
+    "simdux",
     "store",
     "simple store",
     "simple redux"
   ],
   "author": "samuelwong <samuelwong613@gmail.com>",
   "license": "MIT",
-  "dependencies":{
+  "dependencies": {
     "react": "^15.6.1",
     "eventemitter3": "^2.0.3"
   },
