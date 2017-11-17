@@ -5,6 +5,11 @@ const RESERVED_KEY = ['connect','subscribe','unsubscribe','_ee','_state']
 
 class SimduxStore {}
 
+/**
+ * Create a SimduxStore
+ * @param {Object} object - the store
+ * @return {SimduxStore}
+ */
 function createStore(object){
 
 	if (typeof object !== 'object' || object.constructor.name !== 'Object')
@@ -64,4 +69,4 @@ function createStore(object){
 	return store;
 }
 
-module.exports = createStore;
+export default createStore;

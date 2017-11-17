@@ -35,6 +35,13 @@ function _connect(storeOrView, namesOrFunc, extraProps, stores){
 	}
 }
 
+/**
+ * Connect SimduxStore with a Component
+ * @param {SimduxStore} store - the store which going to connect
+ * @param {string[] | Function} namesOrFunc - names or function of listening field
+ * @param {object} extraProps - extra props for customization 
+ * @return {Function}
+ */
 function connect(store, namesOrFunc, extraProps){
 	if (typeof store !== 'object' || store.constructor.name !== 'SimduxStore')
 		throw Error(`store must be a SimduxStore`);
@@ -42,4 +49,4 @@ function connect(store, namesOrFunc, extraProps){
 	return _connect(store, namesOrFunc, extraProps, []);
 }
 
-module.exports = connect;
+export default connect;

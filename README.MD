@@ -20,12 +20,12 @@ Usage
 // store.js
 import {createStore} from 'react-simdux'
 
-const store = {
+export const store = {
   number: 0,
   string: ''
 }
 
-module.exports = createStore(store);
+export default createStore(store);
 ```
 ---
 ```javascript
@@ -33,7 +33,7 @@ module.exports = createStore(store);
 import {connect} from 'react-simdux';
 import Store from './store.js';
 
-class HomePage extends Component {
+export class HomePage extends Component {
   render() {
     return (
       <View>
@@ -46,7 +46,7 @@ class HomePage extends Component {
   }
 }
 
-module.exports = connect (Store, ['number','string']) (HomePage);
+export default connect (Store, ['number','string']) (HomePage);
 ```
 
 
@@ -76,7 +76,7 @@ Store.array = [...Store.array, 1];
 // this won't trigger Home.render
 ```
 
-**How to use mapStoreToProps in connect**
+**Use mapStoreToProps in connect**
 ```javascript
 function mapStoreToProps(store, ownProps){
   return {
@@ -109,11 +109,35 @@ API
 ###### Store.unsubscribe ( listener )
 - **param** ( Function ) *listener* - the same listener used before, to subscribe the store
 
+Advance Usage
+----
 
+**Use customize function in store**
+```javascript
+const store = {
+  num: 1, 
+  reset(n){              // use 'reset(){}' instead of 'reset: ()=>{}'
+    this.num = n;        // this = Store
+    // store.num = n;    // Bad
+  }
+};
+const Store = createStore(store);
+...
+Store.reset(5);
+```
+
+**Use multiple store**
+```javascript
+...
+const StoreA = createStore(storeA);
+const StoreB = createStore(storeB);
+...
+connect (StoreA, mapStoreToProps) (StoreB, ['num']) ... (Home);
+```
 
 Todos
 ----
-
+ - TypeScript
  - test
 
 License

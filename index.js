@@ -5,6 +5,5 @@
 import createStore from './src/createStore.js'
 import connect from './src/connect.js'
 
-module.exports = {
-	createStore, connect
-}
+export default createStore;
+export { createStore, connect };
