@@ -11,8 +11,8 @@ class Wrapper extends Component {
 
 		// initial state
 		this.state = {};
-		this.stores = stores;
-		stores.forEach(this.mapStoreToState);	
+		this.stores = stores.map(store => ({...store}));
+		this.stores.forEach(this.mapStoreToState);	
 	}
 
 	componentWillUnmount(){	
@@ -31,8 +31,13 @@ class Wrapper extends Component {
 				this.state[k] = newState[k]
 			});
 		}
-		storeConfig.listener = (name, value)=>this.onUpdate(storeConfig, name, value);
-		store._ee.on('SET', storeConfig.listener);
+
+		if (storeConfig.listener !== undefined)
+			console.error('react-simdux: storeConfig listener should be undefined', storeConfig.listener);
+		else{
+			storeConfig.listener = (name, value)=>this.onUpdate(storeConfig, name, value);
+			store._ee.on('SET', storeConfig.listener);
+		}
 	}	
 
 	onUpdate = (storeConfig, name, value)=>{
